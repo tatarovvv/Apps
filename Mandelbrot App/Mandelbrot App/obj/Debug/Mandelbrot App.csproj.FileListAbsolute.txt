@@ -1,0 +1,30 @@
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csprojAssemblyReference.cache
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot_App.Form1.resources
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot_App.Properties.Resources.resources
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csproj.GenerateResource.cache
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csproj.CoreCompileInputs.cache
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.exe.config
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.exe
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.pdb
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.exe
+C:\Users\Mennan\source\repos\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.pdb
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.exe.config
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.exe
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.pdb
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csprojAssemblyReference.cache
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot_App.Form1.resources
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot_App.Properties.Resources.resources
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csproj.GenerateResource.cache
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csproj.CoreCompileInputs.cache
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.exe
+C:\Users\Emus\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.pdb
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.exe.config
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.exe
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\bin\Debug\Mandelbrot App.pdb
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csprojAssemblyReference.cache
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot_App.Form1.resources
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot_App.Properties.Resources.resources
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csproj.GenerateResource.cache
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.csproj.CoreCompileInputs.cache
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.exe
+C:\Users\Mennan\Desktop\Mandelbrot App\Mandelbrot App\obj\Debug\Mandelbrot App.pdb
