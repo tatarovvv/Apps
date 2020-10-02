@@ -552,5 +552,4 @@ namespace Mandelbrot_App
             tekenMandelbrot();
         }
     }
-
 }

@@ -12,6 +12,8 @@ namespace Mandelbrot_App
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+
+        // Main methode initialiseerd nieuw gemaakte form. 
         static void Main()
         {
             Application.EnableVisualStyles();

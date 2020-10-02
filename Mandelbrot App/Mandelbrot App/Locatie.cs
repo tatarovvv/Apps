@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mandelbrot_App
 {
+    // Grijpt gegevens voor een nieuw opgeslagen locatie.
     internal class Locatie
     {
         // Variabelen worden opnieuw gedeclareerd, want nieuwe klasse.
