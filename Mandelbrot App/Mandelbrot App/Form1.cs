@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Mandelbrot App gemaakt door Mennan Karaman & Maurits Heijnders
+
 namespace Mandelbrot_App
 {
     public partial class Form1 : Form
@@ -51,17 +53,16 @@ namespace Mandelbrot_App
 
         public double BerekenA(double c, double d, double x)
         {
-            // Berekent de waarde van "a" in de mandelgetal formule. f (a,b) = (a*a-b*b+x, 2*a*b+y)
+            // Berekent de waarde van "a" voor de mandelgetal formule. 
             double o = c * c - d * d + x;
             return o;
         }
         public double BerekenB(double c, double d, double y)
         {
-            // Berekent de waarde van "b" in de mandelgetal formule.
+            // Berekent de waarde van "b" voor de mandelgetal formule.
             double o = 2 * c * d + y;
             return o;
         }
-
 
         private int Mandelgetal(double x, double y, int MaxI)
         {
@@ -108,8 +109,6 @@ namespace Mandelbrot_App
             int channelGroen = 255;
             int channelBlauw = 255;
 
-
-
             // We werken met een ratio van de mandelgetal, dit berekend de ratio.
             double ratio = p / maxAantalIteraties;
 
@@ -148,7 +147,6 @@ namespace Mandelbrot_App
                 channelGroen = (int)(255 * ratio);
                 channelBlauw = (int)(255 * ratio);
             }
-            // De kleuren veranderen afhankelijk van de ratio.
 
             if (ratio >= 0 && ratio <= 1)
                 return Color.FromArgb(channelalpha, channelRood, channelGroen, channelBlauw);
@@ -157,6 +155,7 @@ namespace Mandelbrot_App
             return Color.Black;
         }
 
+        // Hart van het programma; tekent de mandelbrot.
         public void tekenMandelbrot()
         {
             PanelMandel.Invalidate();
@@ -293,7 +292,8 @@ namespace Mandelbrot_App
                 tekenMandelbrot();
             }
 
-            // Als er niks staat resulteert dit niet in een crash, doordat de try-catch ingrijpt.
+            // Als er niks staat resulteert dit niet in een crash, maar verschijnt er een error melding.
+            
             catch
             {
                 MessageBox.Show("Vul eerst je gewenste waarde's in (in cijfers)!", "Foutmelding!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -336,8 +336,6 @@ namespace Mandelbrot_App
                 tekenMandelbrot();
             }
         }
-
-
 
         // Reset knop reset alles op de standaard waarden.
         private void button1_Click(object sender, EventArgs e)
@@ -416,6 +414,7 @@ namespace Mandelbrot_App
             tekenMandelbrot();
         }
 
+        // Standaard locaties van de mandelbrot, de geselecteerde locatie wordt opgeladen door de bijbehoren waarden toe te passen.
         private void SelectieLijst_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (SelectieLijst.SelectedItem == "Standaard")
@@ -520,9 +519,9 @@ namespace Mandelbrot_App
 
         }
 
+        // Er wordt een nieuwe InputBox gemaakt wanneer er op de knop geklikt wordt.
         public void locatiesKnop_Click(object sender, EventArgs e)
-        {
-            // Er wordt een nieuwe InputBox gemaakt wanneer er op de knop geklikt wordt. 
+        { 
             string locatie = Interaction.InputBox("Voer de gewenste naam voor de locatie in.\n" +
                 "(Max aantal iteraties en schaal worden hiermee ook opgeslagen!)", 
                 "Locatie opslaan", "Locatie" + locatieX);
