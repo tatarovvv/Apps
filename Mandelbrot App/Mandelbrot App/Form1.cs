@@ -180,6 +180,8 @@ namespace Mandelbrot_App
                 labelSchaal.ForeColor = Color.White;
                 labelX.ForeColor = Color.White;
                 labelY.ForeColor = Color.White;
+                labelLocatie.ForeColor = Color.White;
+                labelKleur.ForeColor = Color.White;
                 checkBoxDarkMode.ForeColor = Color.White;
                 this.BackColor = Color.Black;
             }
@@ -191,6 +193,8 @@ namespace Mandelbrot_App
                 labelSchaal.ForeColor = Color.Black;
                 labelX.ForeColor = Color.Black;
                 labelY.ForeColor = Color.Black;
+                labelLocatie.ForeColor = Color.Black;
+                labelKleur.ForeColor = Color.Black;
                 checkBoxDarkMode.ForeColor = Color.Black;
                 this.BackColor = Color.White;
             }
@@ -247,6 +251,18 @@ namespace Mandelbrot_App
             this.blueTints = false;
             this.yellowTints = false;
             this.greyTints = true;
+            this.redTints = false;
+            tekenMandelbrot();
+        }
+
+        // Knop zet kleur weer op standaard waarden.
+
+        private void StandaardKleur_Click(object sender, EventArgs e)
+        {
+            this.greenTints = false;
+            this.blueTints = false;
+            this.yellowTints = false;
+            this.greyTints = false;
             this.redTints = false;
             tekenMandelbrot();
         }
@@ -320,6 +336,7 @@ namespace Mandelbrot_App
             InvoerSchaal = 0.01;
             textBoxMaxIteraties.Text = "100";
             maxAantalIteraties = 100;
+            SelectieLijst.Text = "";
 
             this.greenTints = false;
             this.blueTints = false;

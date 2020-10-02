@@ -54,6 +54,9 @@
             this.kleur5 = new System.Windows.Forms.Button();
             this.NotificatieIcoon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SelectieLijst = new System.Windows.Forms.ComboBox();
+            this.labelKleur = new System.Windows.Forms.Label();
+            this.StandaardKleur = new System.Windows.Forms.Button();
+            this.labelLocatie = new System.Windows.Forms.Label();
             this.PanelMandel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +82,6 @@
             this.PanelMandel.Name = "PanelMandel";
             this.PanelMandel.Size = new System.Drawing.Size(575, 400);
             this.PanelMandel.TabIndex = 1;
-            this.PanelMandel.MouseClick += PanelMandel_Click;
             // 
             // OmhoogKnop
             // 
@@ -305,12 +307,46 @@
             this.SelectieLijst.TabIndex = 17;
             this.SelectieLijst.SelectedIndexChanged += new System.EventHandler(this.SelectieLijst_SelectedIndexChanged);
             // 
+            // labelKleur
+            // 
+            this.labelKleur.AutoSize = true;
+            this.labelKleur.Font = new System.Drawing.Font("Cambria", 8.25F);
+            this.labelKleur.Location = new System.Drawing.Point(605, 116);
+            this.labelKleur.Name = "labelKleur";
+            this.labelKleur.Size = new System.Drawing.Size(36, 12);
+            this.labelKleur.TabIndex = 18;
+            this.labelKleur.Text = "Kleur: ";
+            // 
+            // StandaardKleur
+            // 
+            this.StandaardKleur.Font = new System.Drawing.Font("Cambria", 8.25F);
+            this.StandaardKleur.Location = new System.Drawing.Point(607, 276);
+            this.StandaardKleur.Name = "StandaardKleur";
+            this.StandaardKleur.Size = new System.Drawing.Size(75, 23);
+            this.StandaardKleur.TabIndex = 19;
+            this.StandaardKleur.Text = "Standaard";
+            this.StandaardKleur.UseVisualStyleBackColor = true;
+            this.StandaardKleur.Click += new System.EventHandler(this.StandaardKleur_Click);
+            // 
+            // labelLocatie
+            // 
+            this.labelLocatie.AutoSize = true;
+            this.labelLocatie.Font = new System.Drawing.Font("Cambria", 8.25F);
+            this.labelLocatie.Location = new System.Drawing.Point(695, 117);
+            this.labelLocatie.Name = "labelLocatie";
+            this.labelLocatie.Size = new System.Drawing.Size(42, 12);
+            this.labelLocatie.TabIndex = 20;
+            this.labelLocatie.Text = "Locatie:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.labelLocatie);
+            this.Controls.Add(this.StandaardKleur);
+            this.Controls.Add(this.labelKleur);
             this.Controls.Add(this.SelectieLijst);
             this.Controls.Add(this.kleur5);
             this.Controls.Add(this.kleur4);
@@ -366,6 +402,9 @@
         private System.Windows.Forms.Button RechtsKnop;
         private System.Windows.Forms.Button OmlaagKnop;
         private System.Windows.Forms.ComboBox SelectieLijst;
+        private System.Windows.Forms.Label labelKleur;
+        private System.Windows.Forms.Button StandaardKleur;
+        private System.Windows.Forms.Label labelLocatie;
     }
 }
 
