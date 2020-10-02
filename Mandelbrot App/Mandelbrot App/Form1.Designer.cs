@@ -295,10 +295,10 @@
             // 
             this.SelectieLijst.FormattingEnabled = true;
             this.SelectieLijst.Items.AddRange(new object[] {
-            "Plek 1",
-            "Plek 2",
-            "Plek 3",
-            "Plek 4"});
+            "Het Hoofd",
+            "De Brug",
+            "De Snelweg",
+            "De Cirkel"});
             this.SelectieLijst.Location = new System.Drawing.Point(697, 132);
             this.SelectieLijst.Name = "SelectieLijst";
             this.SelectieLijst.Size = new System.Drawing.Size(75, 21);

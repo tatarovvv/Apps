@@ -281,7 +281,7 @@ namespace Mandelbrot_App
                 middenX = BerekenSchaal(0, 575, (schaalnegatief + middenX), (schaal + middenX), mea.X);
                 middenY = BerekenSchaal(0, 500, (schaalnegatief + middenY), (schaal + middenY), mea.Y);
 
-                InvoerSchaal = InvoerSchaal * 0.90;
+                InvoerSchaal = InvoerSchaal * 0.50;
 
                 textBoxX.Text = middenX.ToString();
                 textBoxY.Text = (-1 * middenY).ToString();
@@ -297,7 +297,7 @@ namespace Mandelbrot_App
                 middenX = BerekenSchaal(0, 575, (schaalnegatief + middenX), (schaal + middenX), mea.X);
                 middenY = BerekenSchaal(0, 575, (schaalnegatief + middenY), (schaal + middenY), mea.Y);
 
-                InvoerSchaal = InvoerSchaal * 1.10;
+                InvoerSchaal = InvoerSchaal * 2;
 
                 textBoxX.Text = middenX.ToString();
                 textBoxY.Text = (-1 * middenY).ToString();
@@ -317,7 +317,7 @@ namespace Mandelbrot_App
             textBoxY.Text = "0";
             middenY = 0;
             textBoxSchaal.Text = "0,01";
-            InvoerSchaal = 2.5;
+            InvoerSchaal = 0.01;
             textBoxMaxIteraties.Text = "100";
             maxAantalIteraties = 100;
 
@@ -379,7 +379,7 @@ namespace Mandelbrot_App
 
         private void OmhoogKnop_Click(object sender, EventArgs e)
         {
-            middenY = middenY - (0.25 * (InvoerSchaal / 2.5));
+            middenY = middenY - (0.25 * (InvoerSchaal / 0.01));
             textBoxX.Text = middenX.ToString();
             textBoxY.Text = (-1 * middenY).ToString();
             tekenMandelbrot();
@@ -387,9 +387,84 @@ namespace Mandelbrot_App
 
         private void SelectieLijst_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (SelectieLijst.SelectedItem == "Plek 1")
+            if (SelectieLijst.SelectedItem == "Het Hoofd")
             {
-                Application.Exit();
+                middenX = -0.112194891028094;
+                middenY = -0.734464006394304;
+                InvoerSchaal = 0.000846960441830657;
+                maxAantalIteraties = 100;
+
+                textBoxMaxIteraties.Text = "100";
+                textBoxX.Text = "-0,112194891028094";
+                textBoxY.Text = "0,734464006394304";
+                textBoxSchaal.Text = "0,000846960441830657";
+
+                redTints = false;
+                blueTints = false;
+                greenTints = false;
+                greyTints = true;
+
+                tekenMandelbrot();
+            }
+
+            if (SelectieLijst.SelectedItem == "De Brug")
+            {
+                middenX = -0.754464514021901;
+                middenY = 0.0384433316830878;
+                InvoerSchaal = 0.000523347633027361;
+                maxAantalIteraties = 100;
+
+                textBoxMaxIteraties.Text = "100";
+                textBoxX.Text = "-0,754464514021901";
+                textBoxY.Text = "-0,0384433316830878";
+                textBoxSchaal.Text = "0,000523347633027361";
+
+                redTints = false;
+                blueTints = false;
+                greenTints = true;
+                greyTints = false;
+
+                tekenMandelbrot();
+            }
+
+            if (SelectieLijst.SelectedItem == "De Snelweg")
+            {
+                middenX = -1.70900105193257;
+                middenY = 0.0559846332073212;
+                InvoerSchaal = 0.00106907688081265;
+                maxAantalIteraties = 100;
+
+                textBoxMaxIteraties.Text = "100";
+                textBoxX.Text = "-1,70900105193257";
+                textBoxY.Text = "-0,0559846332073212";
+                textBoxSchaal.Text = "0,00106907688081265";
+
+                redTints = true;
+                blueTints = false;
+                greenTints = false;
+                greyTints = false;
+
+                tekenMandelbrot();
+            }
+
+            if (SelectieLijst.SelectedItem == "De Cirkel")
+            {
+                middenX = 0;
+                middenY = 1.5;
+                InvoerSchaal = 0.025;
+                maxAantalIteraties = 1;
+
+                textBoxMaxIteraties.Text = "1";
+                textBoxX.Text = "0";
+                textBoxY.Text = "-1,5";
+                textBoxSchaal.Text = "0,025";
+
+                redTints = true;
+                blueTints = false;
+                greenTints = false;
+                greyTints = false;
+
+                tekenMandelbrot();
             }
 
         }
