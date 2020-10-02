@@ -57,7 +57,15 @@
             this.labelKleur = new System.Windows.Forms.Label();
             this.StandaardKleur = new System.Windows.Forms.Button();
             this.labelLocatie = new System.Windows.Forms.Label();
+            this.comboBoxEigenLocaties = new System.Windows.Forms.ComboBox();
+            this.locatiesKnop = new System.Windows.Forms.Button();
+            this.labelZoomIn = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelZoomUit = new System.Windows.Forms.Label();
             this.PanelMandel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Reset
@@ -82,6 +90,7 @@
             this.PanelMandel.Name = "PanelMandel";
             this.PanelMandel.Size = new System.Drawing.Size(575, 400);
             this.PanelMandel.TabIndex = 1;
+            this.PanelMandel.MouseClick += PanelMandel_Click;
             // 
             // OmhoogKnop
             // 
@@ -295,15 +304,18 @@
             // 
             // SelectieLijst
             // 
+            this.SelectieLijst.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SelectieLijst.Font = new System.Drawing.Font("Cambria", 8.25F);
             this.SelectieLijst.FormattingEnabled = true;
             this.SelectieLijst.Items.AddRange(new object[] {
+            "Standaard",
             "Het Hoofd",
             "De Brug",
             "De Snelweg",
             "De Cirkel"});
-            this.SelectieLijst.Location = new System.Drawing.Point(697, 132);
+            this.SelectieLijst.Location = new System.Drawing.Point(697, 131);
             this.SelectieLijst.Name = "SelectieLijst";
-            this.SelectieLijst.Size = new System.Drawing.Size(75, 21);
+            this.SelectieLijst.Size = new System.Drawing.Size(84, 20);
             this.SelectieLijst.TabIndex = 17;
             this.SelectieLijst.SelectedIndexChanged += new System.EventHandler(this.SelectieLijst_SelectedIndexChanged);
             // 
@@ -338,12 +350,78 @@
             this.labelLocatie.TabIndex = 20;
             this.labelLocatie.Text = "Locatie:";
             // 
+            // comboBoxEigenLocaties
+            // 
+            this.comboBoxEigenLocaties.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEigenLocaties.Font = new System.Drawing.Font("Cambria", 8.25F);
+            this.comboBoxEigenLocaties.FormattingEnabled = true;
+            this.comboBoxEigenLocaties.Location = new System.Drawing.Point(607, 509);
+            this.comboBoxEigenLocaties.Name = "comboBoxEigenLocaties";
+            this.comboBoxEigenLocaties.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxEigenLocaties.TabIndex = 21;
+            this.comboBoxEigenLocaties.SelectedIndexChanged += new System.EventHandler(this.comboBoxEigenLocaties_SelectedIndexChanged);
+            // 
+            // locatiesKnop
+            // 
+            this.locatiesKnop.Font = new System.Drawing.Font("Cambria", 8.25F);
+            this.locatiesKnop.Location = new System.Drawing.Point(607, 444);
+            this.locatiesKnop.Name = "locatiesKnop";
+            this.locatiesKnop.Size = new System.Drawing.Size(121, 59);
+            this.locatiesKnop.TabIndex = 22;
+            this.locatiesKnop.Text = "Sla huidige locatie op";
+            this.locatiesKnop.UseVisualStyleBackColor = true;
+            this.locatiesKnop.Click += new System.EventHandler(this.locatiesKnop_Click);
+            // 
+            // labelZoomIn
+            // 
+            this.labelZoomIn.AutoSize = true;
+            this.labelZoomIn.Font = new System.Drawing.Font("Cambria", 12F);
+            this.labelZoomIn.Location = new System.Drawing.Point(635, 325);
+            this.labelZoomIn.Name = "labelZoomIn";
+            this.labelZoomIn.Size = new System.Drawing.Size(132, 19);
+            this.labelZoomIn.TabIndex = 23;
+            this.labelZoomIn.Text = "Zoom in met 50%";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Mandelbrot_App.Properties.Resources.rechtsklik;
+            this.pictureBox2.Location = new System.Drawing.Point(607, 359);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(22, 48);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Mandelbrot_App.Properties.Resources.linksklik;
+            this.pictureBox1.Location = new System.Drawing.Point(607, 305);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 48);
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelZoomUit
+            // 
+            this.labelZoomUit.AutoSize = true;
+            this.labelZoomUit.Font = new System.Drawing.Font("Cambria", 12F);
+            this.labelZoomUit.Location = new System.Drawing.Point(635, 379);
+            this.labelZoomUit.Name = "labelZoomUit";
+            this.labelZoomUit.Size = new System.Drawing.Size(137, 19);
+            this.labelZoomUit.TabIndex = 26;
+            this.labelZoomUit.Text = "Zoom uit met 50%";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.labelZoomUit);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.labelZoomIn);
+            this.Controls.Add(this.locatiesKnop);
+            this.Controls.Add(this.comboBoxEigenLocaties);
             this.Controls.Add(this.labelLocatie);
             this.Controls.Add(this.StandaardKleur);
             this.Controls.Add(this.labelKleur);
@@ -371,6 +449,8 @@
             this.Text = "Mandelbrot App";
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.PanelMandel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,6 +485,12 @@
         private System.Windows.Forms.Label labelKleur;
         private System.Windows.Forms.Button StandaardKleur;
         private System.Windows.Forms.Label labelLocatie;
+        private System.Windows.Forms.ComboBox comboBoxEigenLocaties;
+        private System.Windows.Forms.Button locatiesKnop;
+        private System.Windows.Forms.Label labelZoomIn;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label labelZoomUit;
     }
 }
 

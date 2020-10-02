@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,7 @@ namespace Mandelbrot_App
         int maxAantalIteraties = 100;
         double middenX = 0;
         double middenY = 0;
+        int locatieX = 1;
         bool yellowTints = false;
         bool greenTints = false;
         bool blueTints = false;
@@ -30,15 +32,14 @@ namespace Mandelbrot_App
         public Form1()
         {
             // Applicatie wordt aangeroepen en componenten worden geinitialiseerd.
+            // Toekeninngen aan eventhandlers zijn hierin terug te vinden.
             InitializeComponent();
 
             // Bitmap komt op de panel terecht en mandelbrot wordt daar in getekend.
             PanelMandel.BackgroundImage = mandelbrot;
 
+            // Methode die de mandelbrot tekent.
             tekenMandelbrot();
-
-            // Eventhandlers die worden aangeroepen d.m.v. interactie van de user.
-
         }
 
         public double BerekenAfstand(double a, double b)
@@ -50,7 +51,7 @@ namespace Mandelbrot_App
 
         public double BerekenA(double c, double d, double x)
         {
-            // Berekent de waarde van "a" in de mandelgetal formule. 
+            // Berekent de waarde van "a" in de mandelgetal formule. f (a,b) = (a*a-b*b+x, 2*a*b+y)
             double o = c * c - d * d + x;
             return o;
         }
@@ -99,6 +100,7 @@ namespace Mandelbrot_App
             return (nStart + ((xx - Start) * schaal));
         }
 
+        // Kleuren van mandelbrot worden gegeven.
         private Color KleurMandelBrot(double p)
         {
             int channelalpha = 255;
@@ -109,7 +111,7 @@ namespace Mandelbrot_App
 
 
             // We werken met een ratio van de mandelgetal, dit berekend de ratio.
-            double ratio = p / (double)(maxAantalIteraties);
+            double ratio = p / maxAantalIteraties;
 
             if (yellowTints)
             {
@@ -183,7 +185,13 @@ namespace Mandelbrot_App
                 labelLocatie.ForeColor = Color.White;
                 labelKleur.ForeColor = Color.White;
                 checkBoxDarkMode.ForeColor = Color.White;
-                this.BackColor = Color.Black;
+                labelZoomIn.ForeColor = Color.White;
+                labelZoomUit.ForeColor = Color.White;
+                textBoxX.BackColor = Color.Silver;
+                textBoxY.BackColor = Color.Silver;
+                textBoxSchaal.BackColor = Color.Silver;
+                textBoxMaxIteraties.BackColor = Color.Silver;
+                BackColor = Color.FromArgb(18, 18, 18);
             }
 
             else
@@ -195,8 +203,14 @@ namespace Mandelbrot_App
                 labelY.ForeColor = Color.Black;
                 labelLocatie.ForeColor = Color.Black;
                 labelKleur.ForeColor = Color.Black;
+                labelZoomIn.ForeColor = Color.Black;
+                labelZoomUit.ForeColor = Color.Black;
                 checkBoxDarkMode.ForeColor = Color.Black;
-                this.BackColor = Color.White;
+                textBoxX.BackColor = Color.White;
+                textBoxY.BackColor = Color.White;
+                textBoxSchaal.BackColor = Color.White;
+                textBoxMaxIteraties.BackColor = Color.White;
+                BackColor = Color.White;
             }
         }
 
@@ -336,7 +350,7 @@ namespace Mandelbrot_App
             InvoerSchaal = 0.01;
             textBoxMaxIteraties.Text = "100";
             maxAantalIteraties = 100;
-            SelectieLijst.Text = "";
+            SelectieLijst.Text = "Standaard";
 
             this.greenTints = false;
             this.blueTints = false;
@@ -404,6 +418,26 @@ namespace Mandelbrot_App
 
         private void SelectieLijst_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (SelectieLijst.SelectedItem == "Standaard")
+            {
+                middenX = 0;
+                middenY = 0;
+                InvoerSchaal = 0.01;
+                maxAantalIteraties = 100;
+
+                textBoxX.Text = "0";
+                textBoxY.Text = "0";
+                textBoxMaxIteraties.Text = "100";
+                textBoxSchaal.Text = "0,01";
+
+                redTints = false;
+                greyTints = false;
+                blueTints = false;
+                greenTints = false;
+
+                tekenMandelbrot();
+            }
+
             if (SelectieLijst.SelectedItem == "Het Hoofd")
             {
                 middenX = -0.112194891028094;
@@ -484,6 +518,39 @@ namespace Mandelbrot_App
                 tekenMandelbrot();
             }
 
+        }
+
+        public void locatiesKnop_Click(object sender, EventArgs e)
+        {
+            // Er wordt een nieuwe InputBox gemaakt wanneer er op de knop geklikt wordt. 
+            string locatie = Interaction.InputBox("Voer de gewenste naam voor de locatie in.\n" +
+                "(Max aantal iteraties en schaal worden hiermee ook opgeslagen!)", 
+                "Locatie opslaan", "Locatie" + locatieX);
+
+            // Locatie wordt toegevoegd wanneer de gebruiker op 'OK' klikt.
+            if (locatie.Length > 0)
+            {
+                Locatie l = new Locatie(middenX, middenY, InvoerSchaal, maxAantalIteraties, locatie);
+                comboBoxEigenLocaties.Items.Add(l);
+                locatieX++;
+            }
+
+            else { }
+        }
+
+        // De nieuwe aangemaakte locatie wordt geselecteerd en de waardes veranderen naar de geselecteerde locatie.
+        private void comboBoxEigenLocaties_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var l = (Locatie)comboBoxEigenLocaties.SelectedItem;
+            middenX = l.grabMiddenX();
+            middenY = l.grabMiddenY();
+            InvoerSchaal = l.grabSchaal();
+            maxAantalIteraties = l.grabIteraties();
+            textBoxX.Text = middenX.ToString();
+            textBoxY.Text = (middenY*-1).ToString();
+            textBoxSchaal.Text = InvoerSchaal.ToString();
+            textBoxMaxIteraties.Text = maxAantalIteraties.ToString();
+            tekenMandelbrot();
         }
     }
 
