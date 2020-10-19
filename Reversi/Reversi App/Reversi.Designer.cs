@@ -35,6 +35,9 @@ namespace Reversi_App
             this.labelGeel = new System.Windows.Forms.Label();
             this.labelBlauw = new System.Windows.Forms.Label();
             this.panelSpeelveld = new System.Windows.Forms.Panel();
+            this.labelScoreGeel = new System.Windows.Forms.Label();
+            this.labelScoreBlauw = new System.Windows.Forms.Label();
+            this.labelBeurt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // knopNieuwspel
@@ -64,22 +67,22 @@ namespace Reversi_App
             // labelGeel
             // 
             this.labelGeel.AutoSize = true;
-            this.labelGeel.Font = new System.Drawing.Font("Wide awake", 28F);
+            this.labelGeel.Font = new System.Drawing.Font("Wide awake", 36F);
             this.labelGeel.ForeColor = System.Drawing.Color.Yellow;
             this.labelGeel.Location = new System.Drawing.Point(12, 100);
             this.labelGeel.Name = "labelGeel";
-            this.labelGeel.Size = new System.Drawing.Size(83, 61);
+            this.labelGeel.Size = new System.Drawing.Size(103, 78);
             this.labelGeel.TabIndex = 2;
             this.labelGeel.Text = "geel";
             // 
             // labelBlauw
             // 
             this.labelBlauw.AutoSize = true;
-            this.labelBlauw.Font = new System.Drawing.Font("Wide awake", 28F);
+            this.labelBlauw.Font = new System.Drawing.Font("Wide awake", 36F);
             this.labelBlauw.ForeColor = System.Drawing.Color.Blue;
-            this.labelBlauw.Location = new System.Drawing.Point(491, 100);
+            this.labelBlauw.Location = new System.Drawing.Point(472, 100);
             this.labelBlauw.Name = "labelBlauw";
-            this.labelBlauw.Size = new System.Drawing.Size(107, 61);
+            this.labelBlauw.Size = new System.Drawing.Size(133, 78);
             this.labelBlauw.TabIndex = 3;
             this.labelBlauw.Text = "blauw";
             // 
@@ -87,18 +90,52 @@ namespace Reversi_App
             // 
             this.panelSpeelveld.BackColor = System.Drawing.Color.Gray;
             this.panelSpeelveld.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSpeelveld.Location = new System.Drawing.Point(100, 250);
+            this.panelSpeelveld.Location = new System.Drawing.Point(112, 247);
+            this.panelSpeelveld.Margin = new System.Windows.Forms.Padding(2);
             this.panelSpeelveld.Name = "panelSpeelveld";
-            this.panelSpeelveld.Size = new System.Drawing.Size(400, 400);
+            this.panelSpeelveld.Size = new System.Drawing.Size(413, 390);
             this.panelSpeelveld.TabIndex = 4;
-            this.panelSpeelveld.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSpeelveld_Paint);
+            // 
+            // labelScoreGeel
+            // 
+            this.labelScoreGeel.AutoSize = true;
+            this.labelScoreGeel.Font = new System.Drawing.Font("Wide awake", 36F);
+            this.labelScoreGeel.ForeColor = System.Drawing.Color.Yellow;
+            this.labelScoreGeel.Location = new System.Drawing.Point(101, 100);
+            this.labelScoreGeel.Name = "labelScoreGeel";
+            this.labelScoreGeel.Size = new System.Drawing.Size(53, 78);
+            this.labelScoreGeel.TabIndex = 5;
+            this.labelScoreGeel.Text = "2";
+            // 
+            // labelScoreBlauw
+            // 
+            this.labelScoreBlauw.AutoSize = true;
+            this.labelScoreBlauw.Font = new System.Drawing.Font("Wide awake", 36F);
+            this.labelScoreBlauw.ForeColor = System.Drawing.Color.Blue;
+            this.labelScoreBlauw.Location = new System.Drawing.Point(422, 100);
+            this.labelScoreBlauw.Name = "labelScoreBlauw";
+            this.labelScoreBlauw.Size = new System.Drawing.Size(53, 78);
+            this.labelScoreBlauw.TabIndex = 6;
+            this.labelScoreBlauw.Text = "2";
+            // 
+            // labelBeurt
+            // 
+            this.labelBeurt.AutoSize = true;
+            this.labelBeurt.Font = new System.Drawing.Font("Dagestan", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBeurt.Location = new System.Drawing.Point(186, 200);
+            this.labelBeurt.Name = "labelBeurt";
+            this.labelBeurt.Size = new System.Drawing.Size(259, 33);
+            this.labelBeurt.TabIndex = 7;
+            this.labelBeurt.Text = "Blauw is aan de beurt!";
             // 
             // Reversi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(600, 750);
+            this.Controls.Add(this.labelBeurt);
+            this.Controls.Add(this.labelScoreBlauw);
+            this.Controls.Add(this.labelScoreGeel);
             this.Controls.Add(this.panelSpeelveld);
             this.Controls.Add(this.labelBlauw);
             this.Controls.Add(this.labelGeel);
@@ -120,5 +157,8 @@ namespace Reversi_App
         private System.Windows.Forms.Label labelGeel;
         private System.Windows.Forms.Label labelBlauw;
         private System.Windows.Forms.Panel panelSpeelveld;
+        private System.Windows.Forms.Label labelScoreGeel;
+        private System.Windows.Forms.Label labelScoreBlauw;
+        private System.Windows.Forms.Label labelBeurt;
     }
 }
