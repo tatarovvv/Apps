@@ -38,6 +38,9 @@ namespace Reversi_App
             this.labelScoreGeel = new System.Windows.Forms.Label();
             this.labelScoreBlauw = new System.Windows.Forms.Label();
             this.labelBeurt = new System.Windows.Forms.Label();
+            this.labelBlauwText = new System.Windows.Forms.Label();
+            this.labelGeelText = new System.Windows.Forms.Label();
+            this.PassLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // knopNieuwspel
@@ -51,6 +54,7 @@ namespace Reversi_App
             this.knopNieuwspel.TabIndex = 0;
             this.knopNieuwspel.Text = "Nieuw Spel";
             this.knopNieuwspel.UseVisualStyleBackColor = true;
+            this.knopNieuwspel.Click += new System.EventHandler(this.NieuwSpel);
             // 
             // knopHelp
             // 
@@ -63,6 +67,7 @@ namespace Reversi_App
             this.knopHelp.TabIndex = 1;
             this.knopHelp.Text = "Help";
             this.knopHelp.UseVisualStyleBackColor = true;
+            this.knopHelp.Click += new System.EventHandler(this.Help);
             // 
             // labelGeel
             // 
@@ -122,17 +127,54 @@ namespace Reversi_App
             // 
             this.labelBeurt.AutoSize = true;
             this.labelBeurt.Font = new System.Drawing.Font("Dagestan", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBeurt.Location = new System.Drawing.Point(186, 200);
+            this.labelBeurt.ForeColor = System.Drawing.Color.White;
+            this.labelBeurt.Location = new System.Drawing.Point(254, 193);
             this.labelBeurt.Name = "labelBeurt";
-            this.labelBeurt.Size = new System.Drawing.Size(259, 33);
+            this.labelBeurt.Size = new System.Drawing.Size(192, 33);
             this.labelBeurt.TabIndex = 7;
-            this.labelBeurt.Text = "Blauw is aan de beurt!";
+            this.labelBeurt.Text = " is aan de beurt!";
+            // 
+            // labelBlauwText
+            // 
+            this.labelBlauwText.AutoSize = true;
+            this.labelBlauwText.Font = new System.Drawing.Font("Dagestan", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBlauwText.ForeColor = System.Drawing.Color.Blue;
+            this.labelBlauwText.Location = new System.Drawing.Point(183, 193);
+            this.labelBlauwText.Name = "labelBlauwText";
+            this.labelBlauwText.Size = new System.Drawing.Size(82, 33);
+            this.labelBlauwText.TabIndex = 8;
+            this.labelBlauwText.Text = "Blauw";
+            // 
+            // labelGeelText
+            // 
+            this.labelGeelText.AutoSize = true;
+            this.labelGeelText.Font = new System.Drawing.Font("Dagestan", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGeelText.ForeColor = System.Drawing.Color.Yellow;
+            this.labelGeelText.Location = new System.Drawing.Point(197, 193);
+            this.labelGeelText.Name = "labelGeelText";
+            this.labelGeelText.Size = new System.Drawing.Size(68, 33);
+            this.labelGeelText.TabIndex = 9;
+            this.labelGeelText.Text = "Geel";
+            this.labelGeelText.Visible = false;
+            // 
+            // PassLabel
+            // 
+            this.PassLabel.AutoSize = true;
+            this.PassLabel.Font = new System.Drawing.Font("Dagestan", 14F);
+            this.PassLabel.ForeColor = System.Drawing.Color.White;
+            this.PassLabel.Location = new System.Drawing.Point(154, 660);
+            this.PassLabel.Name = "PassLabel";
+            this.PassLabel.Size = new System.Drawing.Size(0, 20);
+            this.PassLabel.TabIndex = 10;
             // 
             // Reversi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 750);
+            this.Controls.Add(this.PassLabel);
+            this.Controls.Add(this.labelGeelText);
+            this.Controls.Add(this.labelBlauwText);
             this.Controls.Add(this.labelBeurt);
             this.Controls.Add(this.labelScoreBlauw);
             this.Controls.Add(this.labelScoreGeel);
@@ -160,5 +202,8 @@ namespace Reversi_App
         private System.Windows.Forms.Label labelScoreGeel;
         private System.Windows.Forms.Label labelScoreBlauw;
         private System.Windows.Forms.Label labelBeurt;
+        private System.Windows.Forms.Label labelBlauwText;
+        private System.Windows.Forms.Label labelGeelText;
+        private System.Windows.Forms.Label PassLabel;
     }
 }
