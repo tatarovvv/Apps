@@ -161,7 +161,7 @@ namespace Reversi_App
             // 
             this.PassLabel.AutoSize = true;
             this.PassLabel.Font = new System.Drawing.Font("Dagestan", 14F);
-            this.PassLabel.ForeColor = System.Drawing.Color.White;
+            this.PassLabel.ForeColor = System.Drawing.Color.Crimson;
             this.PassLabel.Location = new System.Drawing.Point(154, 660);
             this.PassLabel.Name = "PassLabel";
             this.PassLabel.Size = new System.Drawing.Size(0, 20);

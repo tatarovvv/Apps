@@ -34,6 +34,9 @@ namespace Reversi_App
         {
             SpelOpties s = new SpelOpties();
 
+            Button nieuw = new Button();
+            nieuw.Text = "Nieuw Spel !";
+
             InitializeComponent();
             panelSpeelveld.Width = 400 / 6 * bordBreedte;
             panelSpeelveld.Height = 400 / 6 * bordHoogte;
@@ -125,6 +128,7 @@ namespace Reversi_App
                     beurt = 1;
                     labelScoreBlauw.Text = "" + TelStenen(2);
                     labelScoreGeel.Text = "" + TelStenen(1);
+                    PassLabel.Text = "";
                     CheckWinnaar();
                     panelSpeelveld.Invalidate();
             }
@@ -138,6 +142,7 @@ namespace Reversi_App
                     beurt = 2;
                     labelScoreBlauw.Text = "" + TelStenen(2);
                     labelScoreGeel.Text = "" + TelStenen(1);
+                    PassLabel.Text = "";
                     CheckWinnaar();
                     panelSpeelveld.Invalidate();
                 }

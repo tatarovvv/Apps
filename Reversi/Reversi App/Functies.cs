@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Reversi_App
 {
     public partial class Reversi
     {
+        msgbox m = new msgbox();
         public int TelStenen(int k)
         {
             int teller = 0;
@@ -129,13 +132,22 @@ namespace Reversi_App
         public void Winnaar()
         {
             if (TelStenen(1) > TelStenen(2))
-                MessageBox.Show("Geel is de winnaar!");
+            {
+                m.bericht("Geel is de winnaar!");
+                m.ShowDialog();
+            }
 
             if (TelStenen(1) < TelStenen(2))
-                MessageBox.Show("Blauw is de winnaar!");
+            {
+                m.bericht("Blauw is de winnaar!");
+                m.ShowDialog();
+            }
 
             if (TelStenen(1) == TelStenen(2))
-                MessageBox.Show("Remise !");
+            {
+                m.bericht("Gelijkspel, REMISE !");
+                m.ShowDialog();
+            }
         }
     }
 }
