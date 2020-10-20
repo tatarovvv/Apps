@@ -80,13 +80,16 @@ namespace Reversi_App
                     if (bord[a, b] == 1) // 1 is geel.
                     {
                         g.FillEllipse(sari, a * (panelSpeelveld.Width / bordBreedte) + 2, b * (panelSpeelveld.Height / bordHoogte) + 2, panelSpeelveld.Width / bordBreedte - 4, panelSpeelveld.Height / bordHoogte - 4);
-                        g.FillEllipse(sariDark,  a * (panelSpeelveld.Width / bordBreedte) + 2, b * (panelSpeelveld.Height / bordHoogte) + 2, (float)(0.75 * (panelSpeelveld.Width / bordBreedte - 4)), (float)(0.75 * (panelSpeelveld.Height / bordHoogte - 4)));
+                        g.FillEllipse(sariDark, a * (panelSpeelveld.Width / bordBreedte) + 11, b * (panelSpeelveld.Height / bordHoogte) + 11, (float)((panelSpeelveld.Width / bordBreedte - 4) / 1.4), (float)((panelSpeelveld.Height / bordHoogte - 4) / 1.4));
                     }
 
-                    else if (bord[a, b] == 2) // 2 is blauw.
+                    else if (bord[a, b] == 2) // 2 is blauw
+                    {
                         g.FillEllipse(lacivert, a * (panelSpeelveld.Width / bordBreedte) + 2, b * (panelSpeelveld.Height / bordHoogte) + 2, panelSpeelveld.Width / bordBreedte - 4, panelSpeelveld.Height / bordHoogte - 4);
+                        g.FillEllipse(lacivertDark, a * (panelSpeelveld.Width / bordBreedte) + 11, b * (panelSpeelveld.Height / bordHoogte) + 11, (float)((panelSpeelveld.Width / bordBreedte - 4) / 1.4), (float)((panelSpeelveld.Height / bordHoogte - 4) / 1.4));
+                    }
 
-                    if (ValidPlace(a, b) && help)
+                        if (ValidPlace(a, b) && help)
                         g.FillEllipse(Brushes.White, (a * (panelSpeelveld.Width / bordBreedte)) + ((panelSpeelveld.Width / bordBreedte) / 4), (b * (panelSpeelveld.Height / bordHoogte)) + ((panelSpeelveld.Width / bordBreedte) / 4), panelSpeelveld.Width / bordBreedte / 2, panelSpeelveld.Height / bordHoogte / 2);
                 }
             }
