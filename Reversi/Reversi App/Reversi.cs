@@ -21,18 +21,18 @@ namespace Reversi_App
         SpelOpties s = new SpelOpties();
         public static int bordHoogte = 9; // Bordhoogte in aantal vakjes, kan veranderd worden.
         public static int bordBreedte = 6; // Bordbreedte in aantal vakjes, kan veranderd worden.
-        public static string Speler1 = "";
-        public static string Speler2 = "S";
+        public static string Speler1 = ""; 
+        public static string Speler2 = "";
        
-        public static int beurt = 2;
-        int geelScore = 2;
-        int blauwScore = 2;
-        bool help = false;
+        public static int beurt = 2; // Beurt afhankelijk van spelopties.
+        int geelScore = 2; // Standaard beginscore's
+        int blauwScore = 2; // Standaard beginscore's
+        bool help = false; // Help optie staat standaard uit.
 
         int x; // Bepaalt waar de steen komt afhankelijk van de plaats waar geklik wordt.
         int y; // Bepaalt waar de steen komt afhankelijk van de plaats waar geklik wordt.
 
-        int[,] bord; // Speelbord.
+        int[,] bord; // Speelbord array.
 
         public Reversi()
         {
@@ -46,7 +46,7 @@ namespace Reversi_App
             if (bordBreedte < 3)
                 bordBreedte = 3;
             
-            // Array krijgt variabelen afhankelijk van bord hoogte en breedte.
+            // Speelbord array krijgt variabelen afhankelijk van bord hoogte en breedte.
             bord = new int[bordBreedte, bordHoogte];
 
             // Componenten van Form worden geïnitialiseerd.
