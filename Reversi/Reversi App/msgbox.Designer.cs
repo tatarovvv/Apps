@@ -28,49 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelWinnaar = new System.Windows.Forms.Label();
-            this.OkKnop = new System.Windows.Forms.Button();
+            this.labelWinnaarB = new System.Windows.Forms.Label();
+            this.labelWinnaarG = new System.Windows.Forms.Label();
+            this.labelGelijkspel = new System.Windows.Forms.Label();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
-            // labelWinnaar
+            // labelWinnaarB
             // 
-            this.labelWinnaar.AutoSize = true;
-            this.labelWinnaar.Font = new System.Drawing.Font("Dagestan", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWinnaar.ForeColor = System.Drawing.Color.Blue;
-            this.labelWinnaar.Location = new System.Drawing.Point(46, 35);
-            this.labelWinnaar.Name = "labelWinnaar";
-            this.labelWinnaar.Size = new System.Drawing.Size(263, 37);
-            this.labelWinnaar.TabIndex = 0;
-            this.labelWinnaar.Text = "Blauw is de winnaar!";
+            this.labelWinnaarB.AutoSize = true;
+            this.labelWinnaarB.BackColor = System.Drawing.Color.Transparent;
+            this.labelWinnaarB.Font = new System.Drawing.Font("Dagestan", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWinnaarB.ForeColor = System.Drawing.Color.Blue;
+            this.labelWinnaarB.Location = new System.Drawing.Point(82, 95);
+            this.labelWinnaarB.Name = "labelWinnaarB";
+            this.labelWinnaarB.Size = new System.Drawing.Size(282, 39);
+            this.labelWinnaarB.TabIndex = 1;
+            this.labelWinnaarB.Text = "Blauw is de winnaar!";
             // 
-            // OkKnop
+            // labelWinnaarG
             // 
-            this.OkKnop.Font = new System.Drawing.Font("American Signs", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OkKnop.Location = new System.Drawing.Point(104, 89);
-            this.OkKnop.Name = "OkKnop";
-            this.OkKnop.Size = new System.Drawing.Size(153, 43);
-            this.OkKnop.TabIndex = 1;
-            this.OkKnop.Text = "Nieuw Spel !";
-            this.OkKnop.UseVisualStyleBackColor = true;
+            this.labelWinnaarG.AutoSize = true;
+            this.labelWinnaarG.BackColor = System.Drawing.Color.Transparent;
+            this.labelWinnaarG.Font = new System.Drawing.Font("Dagestan", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWinnaarG.ForeColor = System.Drawing.Color.Yellow;
+            this.labelWinnaarG.Location = new System.Drawing.Point(92, 95);
+            this.labelWinnaarG.Name = "labelWinnaarG";
+            this.labelWinnaarG.Size = new System.Drawing.Size(262, 39);
+            this.labelWinnaarG.TabIndex = 2;
+            this.labelWinnaarG.Text = "Geel is de winnaar!";
+            // 
+            // labelGelijkspel
+            // 
+            this.labelGelijkspel.AutoSize = true;
+            this.labelGelijkspel.BackColor = System.Drawing.Color.Transparent;
+            this.labelGelijkspel.Font = new System.Drawing.Font("Dagestan", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGelijkspel.ForeColor = System.Drawing.Color.Crimson;
+            this.labelGelijkspel.Location = new System.Drawing.Point(82, 95);
+            this.labelGelijkspel.Name = "labelGelijkspel";
+            this.labelGelijkspel.Size = new System.Drawing.Size(273, 39);
+            this.labelGelijkspel.TabIndex = 3;
+            this.labelGelijkspel.Text = "Gelijkspel, REMISE !";
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(175, 153);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(92, 40);
+            this.materialRaisedButton1.TabIndex = 4;
+            this.materialRaisedButton1.Text = "OK !";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.KnopKlik);
             // 
             // msgbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 144);
-            this.Controls.Add(this.OkKnop);
-            this.Controls.Add(this.labelWinnaar);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(443, 205);
+            this.ControlBox = false;
+            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.labelGelijkspel);
+            this.Controls.Add(this.labelWinnaarG);
+            this.Controls.Add(this.labelWinnaarB);
             this.Name = "msgbox";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowIcon = false;
-            this.Text = "Winnaar ?";
+            this.Sizable = false;
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelWinnaar;
-        private System.Windows.Forms.Button OkKnop;
+        private System.Windows.Forms.Label labelWinnaarB;
+        private System.Windows.Forms.Label labelWinnaarG;
+        private System.Windows.Forms.Label labelGelijkspel;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
     }
 }

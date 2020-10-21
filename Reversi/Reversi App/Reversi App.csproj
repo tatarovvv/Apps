@@ -96,6 +96,9 @@
     <EmbeddedResource Include="Reversi.resx">
       <DependentUpon>Reversi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SpelOpties.resx">
+      <DependentUpon>SpelOpties.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

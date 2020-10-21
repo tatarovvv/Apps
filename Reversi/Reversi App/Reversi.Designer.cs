@@ -30,6 +30,7 @@ namespace Reversi_App
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.knopNieuwspel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.knopHelp = new MaterialSkin.Controls.MaterialRaisedButton();
             this.labelGeel = new System.Windows.Forms.Label();
@@ -38,34 +39,40 @@ namespace Reversi_App
             this.labelScoreGeel = new System.Windows.Forms.Label();
             this.labelScoreBlauw = new System.Windows.Forms.Label();
             this.labelBeurt = new System.Windows.Forms.Label();
-            this.labelBlauwText = new System.Windows.Forms.Label();
-            this.labelGeelText = new System.Windows.Forms.Label();
+            this.labelSpeler1Text = new System.Windows.Forms.Label();
+            this.labelSpeler2Text = new System.Windows.Forms.Label();
             this.PassLabel = new System.Windows.Forms.Label();
+            this.labelTip = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // knopNieuwspel
             // 
             this.knopNieuwspel.Depth = 0;
-            this.knopNieuwspel.Location = new System.Drawing.Point(238, 100);
+            this.knopNieuwspel.Location = new System.Drawing.Point(260, 105);
             this.knopNieuwspel.MouseState = MaterialSkin.MouseState.HOVER;
             this.knopNieuwspel.Name = "knopNieuwspel";
             this.knopNieuwspel.Primary = true;
-            this.knopNieuwspel.Size = new System.Drawing.Size(124, 37);
+            this.knopNieuwspel.Size = new System.Drawing.Size(80, 37);
             this.knopNieuwspel.TabIndex = 0;
             this.knopNieuwspel.Text = "Nieuw Spel";
+            this.toolTip2.SetToolTip(this.knopNieuwspel, "Start een nieuw spel !");
             this.knopNieuwspel.UseVisualStyleBackColor = true;
-            this.knopNieuwspel.Click += new System.EventHandler(this.NieuwSpel);
+            this.knopNieuwspel.Click += new System.EventHandler(this.NieuwSpelKnop);
             // 
             // knopHelp
             // 
             this.knopHelp.Depth = 0;
-            this.knopHelp.Location = new System.Drawing.Point(260, 143);
+            this.knopHelp.Location = new System.Drawing.Point(260, 148);
             this.knopHelp.MouseState = MaterialSkin.MouseState.HOVER;
             this.knopHelp.Name = "knopHelp";
             this.knopHelp.Primary = true;
             this.knopHelp.Size = new System.Drawing.Size(80, 30);
             this.knopHelp.TabIndex = 1;
             this.knopHelp.Text = "Help";
+            this.toolTip1.SetToolTip(this.knopHelp, "Help knop laat mogelijke zetten zien!");
             this.knopHelp.UseVisualStyleBackColor = true;
             this.knopHelp.Click += new System.EventHandler(this.Help);
             // 
@@ -134,28 +141,28 @@ namespace Reversi_App
             this.labelBeurt.TabIndex = 7;
             this.labelBeurt.Text = " is aan de beurt!";
             // 
-            // labelBlauwText
+            // labelSpeler1Text
             // 
-            this.labelBlauwText.AutoSize = true;
-            this.labelBlauwText.Font = new System.Drawing.Font("Dagestan", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBlauwText.ForeColor = System.Drawing.Color.Blue;
-            this.labelBlauwText.Location = new System.Drawing.Point(183, 193);
-            this.labelBlauwText.Name = "labelBlauwText";
-            this.labelBlauwText.Size = new System.Drawing.Size(82, 33);
-            this.labelBlauwText.TabIndex = 8;
-            this.labelBlauwText.Text = "Blauw";
+            this.labelSpeler1Text.AutoSize = true;
+            this.labelSpeler1Text.Font = new System.Drawing.Font("Dagestan", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpeler1Text.ForeColor = System.Drawing.Color.Blue;
+            this.labelSpeler1Text.Location = new System.Drawing.Point(183, 193);
+            this.labelSpeler1Text.Name = "labelSpeler1Text";
+            this.labelSpeler1Text.Size = new System.Drawing.Size(82, 33);
+            this.labelSpeler1Text.TabIndex = 8;
+            this.labelSpeler1Text.Text = "Blauw";
             // 
-            // labelGeelText
+            // labelSpeler2Text
             // 
-            this.labelGeelText.AutoSize = true;
-            this.labelGeelText.Font = new System.Drawing.Font("Dagestan", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGeelText.ForeColor = System.Drawing.Color.Yellow;
-            this.labelGeelText.Location = new System.Drawing.Point(197, 193);
-            this.labelGeelText.Name = "labelGeelText";
-            this.labelGeelText.Size = new System.Drawing.Size(68, 33);
-            this.labelGeelText.TabIndex = 9;
-            this.labelGeelText.Text = "Geel";
-            this.labelGeelText.Visible = false;
+            this.labelSpeler2Text.AutoSize = true;
+            this.labelSpeler2Text.Font = new System.Drawing.Font("Dagestan", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpeler2Text.ForeColor = System.Drawing.Color.Yellow;
+            this.labelSpeler2Text.Location = new System.Drawing.Point(197, 193);
+            this.labelSpeler2Text.Name = "labelSpeler2Text";
+            this.labelSpeler2Text.Size = new System.Drawing.Size(68, 33);
+            this.labelSpeler2Text.TabIndex = 9;
+            this.labelSpeler2Text.Text = "Geel";
+            this.labelSpeler2Text.Visible = false;
             // 
             // PassLabel
             // 
@@ -167,14 +174,49 @@ namespace Reversi_App
             this.PassLabel.Size = new System.Drawing.Size(0, 20);
             this.PassLabel.TabIndex = 10;
             // 
+            // labelTip
+            // 
+            this.labelTip.AutoSize = true;
+            this.labelTip.Font = new System.Drawing.Font("Dagestan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTip.Location = new System.Drawing.Point(174, 683);
+            this.labelTip.Name = "labelTip";
+            this.labelTip.Size = new System.Drawing.Size(249, 17);
+            this.labelTip.TabIndex = 11;
+            this.labelTip.Text = "Tip: Gebruik de help knop als je vast zit !";
+            this.labelTip.Visible = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "Help Knop";
+            // 
+            // toolTip2
+            // 
+            this.toolTip2.ToolTipTitle = "Nieuw Spel";
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(260, 69);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(80, 30);
+            this.materialRaisedButton1.TabIndex = 12;
+            this.materialRaisedButton1.Text = "Opties";
+            this.toolTip1.SetToolTip(this.materialRaisedButton1, "Help knop laat mogelijke zetten zien!");
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
             // Reversi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 750);
+            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.labelTip);
             this.Controls.Add(this.PassLabel);
-            this.Controls.Add(this.labelGeelText);
-            this.Controls.Add(this.labelBlauwText);
+            this.Controls.Add(this.labelSpeler2Text);
+            this.Controls.Add(this.labelSpeler1Text);
             this.Controls.Add(this.labelBeurt);
             this.Controls.Add(this.labelScoreBlauw);
             this.Controls.Add(this.labelScoreGeel);
@@ -186,7 +228,7 @@ namespace Reversi_App
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "Reversi";
-            this.Text = "Reversi App";
+            this.Text = "Reversi Game";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,8 +244,12 @@ namespace Reversi_App
         private System.Windows.Forms.Label labelScoreGeel;
         private System.Windows.Forms.Label labelScoreBlauw;
         private System.Windows.Forms.Label labelBeurt;
-        private System.Windows.Forms.Label labelBlauwText;
-        private System.Windows.Forms.Label labelGeelText;
+        private System.Windows.Forms.Label labelSpeler1Text;
+        private System.Windows.Forms.Label labelSpeler2Text;
         private System.Windows.Forms.Label PassLabel;
+        private System.Windows.Forms.Label labelTip;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
     }
 }
