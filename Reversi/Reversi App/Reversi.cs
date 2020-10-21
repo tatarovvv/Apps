@@ -14,6 +14,8 @@ using MaterialDesignColors.Recommended;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
+// Reversi App gemaakt door Mennan Karaman & Maurits Heijnders
+
 namespace Reversi_App
 {
     public partial class Reversi : MaterialForm
