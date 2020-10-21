@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(msgbox));
             this.labelWinnaarB = new System.Windows.Forms.Label();
             this.labelWinnaarG = new System.Windows.Forms.Label();
             this.labelGelijkspel = new System.Windows.Forms.Label();
@@ -94,10 +95,12 @@
             this.Controls.Add(this.labelGelijkspel);
             this.Controls.Add(this.labelWinnaarG);
             this.Controls.Add(this.labelWinnaarB);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "msgbox";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowIcon = false;
             this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
             this.PerformLayout();
 

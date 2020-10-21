@@ -161,11 +161,13 @@ namespace Reversi_App
                 bord[bordBreedte / 2 - 1, bordBreedte / 2] = 1;
                 bord[bordBreedte / 2, bordBreedte / 2 - 1] = 1;
 
-                // De score's worden gereset en de beurt wordt teruggezet op de oorspronkelijke beurt.
-                beurt = 2;
+                // De score's worden gereset en de beurt wordt teruggezet op de oorspronkelijke beurt, hulplabel en passlabel worden evt. weggehaald.
+                beurt = SpelOpties.beurt;
                 labelScoreGeel.Text = "" + TelStenen(1);
                 labelScoreBlauw.Text = "" + TelStenen(2);
                 panelSpeelveld.Invalidate();
+                labelTip.Visible = false;
+                PassLabel.Text = "";
 
                 // De help functie wordt weer uitgezet als die aanstond.
                 if (help == true)

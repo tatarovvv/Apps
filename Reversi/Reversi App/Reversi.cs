@@ -18,13 +18,12 @@ namespace Reversi_App
 {
     public partial class Reversi : MaterialForm
     {
-        SpelOpties spelopties = new SpelOpties();
-        public static int bordHoogte = 6; // Bordhoogte in aantal vakjes, kan veranderd worden.
+        SpelOpties s = new SpelOpties();
+        public static int bordHoogte = 9; // Bordhoogte in aantal vakjes, kan veranderd worden.
         public static int bordBreedte = 6; // Bordbreedte in aantal vakjes, kan veranderd worden.
         public static string Speler1 = "";
-        public static string Speler2 = "";
-        public static string darkmode = "";
-
+        public static string Speler2 = "S";
+       
         public static int beurt = 2;
         int geelScore = 2;
         int blauwScore = 2;
@@ -33,12 +32,12 @@ namespace Reversi_App
         int x; // Bepaalt waar de steen komt afhankelijk van de plaats waar geklik wordt.
         int y; // Bepaalt waar de steen komt afhankelijk van de plaats waar geklik wordt.
 
-        int[,] bord = new int[bordHoogte, bordBreedte]; // Speelbord.
+        int[,] bord; // Speelbord.
 
         public Reversi()
         {
             // Bord wordt eerst opgestart met opties, speler mag zijn eigen keuzes invoeren.
-            spelopties.ShowDialog();
+            s.ShowDialog();
 
             // Bord mag niet kleiner zijn dan 3x3.
             if (bordHoogte < 3)
@@ -46,7 +45,11 @@ namespace Reversi_App
 
             if (bordBreedte < 3)
                 bordBreedte = 3;
+            
+            // Array krijgt variabelen afhankelijk van bord hoogte en breedte.
+            bord = new int[bordBreedte, bordHoogte];
 
+            // Componenten van Form worden geïnitialiseerd.
             InitializeComponent();
             panelSpeelveld.Width = 400 / 6 * bordBreedte;
             panelSpeelveld.Height = 400 / 6 * bordHoogte;
@@ -58,7 +61,21 @@ namespace Reversi_App
             // Form grootte is afhankelijk van bordgrootte.
             if (panelSpeelveld.Width + 187 > 600)
                 this.ClientSize = new Size(panelSpeelveld.Width + 187, panelSpeelveld.Height + 360);
-          
+
+            // Om alles netjes op de goeie locatie te krijgen wanneer er verschillende bordgroottes gebruikt worden.
+            labelBlauw.Location = new Point(ClientSize.Width - labelBlauw.Width, 100);
+            labelScoreBlauw.Location = new Point(ClientSize.Width - 175, 100);
+            labelSpeler1Text.Location = new Point(ClientSize.Width / 2 - labelSpeler1Text.Width / 2, 200);
+            labelSpeler2Text.Location = new Point(ClientSize.Width / 2 - labelSpeler2Text.Width / 2, 200);
+            knopNieuwspel.Location = new Point(ClientSize.Width / 2 - knopNieuwspel.Width / 2, 117);
+            knopHelp.Location = new Point(ClientSize.Width / 2 - knopHelp.Width / 2 , 160);
+            knopOpties.Location = new Point(ClientSize.Width / 2 - knopOpties.Width / 2, 74);
+            panelSpeelveld.Location = new Point((ClientSize.Width - panelSpeelveld.Width) / 2, 247);
+            labelTip.Location = new Point(ClientSize.Width / 2 - labelTip.Width / 2, ClientSize.Height - 100);
+            PassLabel.Location = new Point(ClientSize.Width / 2 - 330 / 2, ClientSize.Height - 75);
+            labelBeurt.Location = new Point(10, 200);
+
+
             // Leuke UX Thema.
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -155,7 +172,7 @@ namespace Reversi_App
            else if ((ValidPlace(x, y)) && beurt == 1)
             {
                     bord[x, y] = 1; // Geel steen wordt gezet, ingesloten stenen worden blauw, score wordt veranderd, beurt word doorgegeven en checkt of er gepasst moet worden.
-                Speel(x, y);
+                    Speel(x, y);
                     beurt = 2;
                     labelScoreBlauw.Text = "" + TelStenen(2);
                     labelScoreGeel.Text = "" + TelStenen(1);
@@ -167,6 +184,7 @@ namespace Reversi_App
             // Als er geen zet mogelijk is wordt er een bericht weergegeven.
             else
             {
+                if (help != true)
                 labelTip.Visible = true;
             }
         }
@@ -175,7 +193,11 @@ namespace Reversi_App
         private void Help(object sender, EventArgs e)
         {
             if (!help)
+            {
                 help = true;
+                labelTip.Visible = false;
+            }
+
 
             else if (help)
                 help = false;
@@ -189,10 +211,9 @@ namespace Reversi_App
             NieuwSpel();
         }
 
-        // Eventhandler voor 'Opties' knop.
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            spelopties.ShowDialog();
+            Application.Restart();
         }
     }
 }

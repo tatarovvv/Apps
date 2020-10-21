@@ -5,7 +5,7 @@ using MaterialSkin.Controls;
 
 namespace Reversi_App
 {
-    internal class SpelOpties : MaterialForm
+    public partial class SpelOpties : MaterialForm
     {
         private Label label1;
         private Label label2;
@@ -21,6 +21,9 @@ namespace Reversi_App
         private MaterialRaisedButton materialRaisedButton2;
         private MaterialRaisedButton materialRaisedButton1;
         
+        // Als er geen beurt wordt gekozen dan mag Speler 1 standaard beginnen. (De beurt variabele en speler variabelen zijn een beetje verwarrend, maar het werkt wel!)
+        public static int beurt = 2;
+        
         // Spelopties voordat het spel begint.
         public SpelOpties()
         {
@@ -34,6 +37,7 @@ namespace Reversi_App
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpelOpties));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxGridH = new System.Windows.Forms.TextBox();
@@ -206,7 +210,9 @@ namespace Reversi_App
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SpelOpties";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reversi Opties";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -220,17 +226,61 @@ namespace Reversi_App
         {
             try
             {
-                Reversi.bordHoogte = int.Parse(textBoxGridH.Text);
-                Reversi.bordBreedte = int.Parse(textBoxGridB.Text);
+                Reversi.bordHoogte = Int32.Parse(textBoxGridH.Text);
+                Reversi.bordBreedte = Int32.Parse(textBoxGridB.Text);
                 Reversi.Speler1 = textBoxSpeler1.Text;
                 Reversi.Speler2 = textBoxSpeler2.Text;
-                Hide();
+
+                if (checkBoxSpeler1.Checked)
+                {
+                    beurt = 2;
+                    Reversi.beurt = 2;
+                }
+
+                if (checkBoxSpeler2.Checked)
+                {
+                    beurt = 1;
+                    Reversi.beurt = 1;
+                }
+
+                if (textBoxSpeler1.Text == "")
+                    Reversi.Speler1 = "Speler 1";
+
+                if (textBoxSpeler2.Text == "")
+                    Reversi.Speler2 = "Speler 2";
+
+                Dispose();
             }
 
-            // Als er niks of geen geldige gegevens worden ingevoerd dan krijgt de user een foutmelding.
+            // Als er niks of geen geldige gegevens staan voor grid, wordt het spel met standaard 6x6 formaat gestart.
+            
             catch
             {
-                MessageBox.Show("Vul geldige waardes in!", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Geen / Ongeldige grid waarde's ingevoerd, spel word gestart met standaard 6x6 formaat!", "Grid Waarde's", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Reversi.Speler1 = textBoxSpeler1.Text;
+                Reversi.Speler2 = textBoxSpeler2.Text;
+                Reversi.bordBreedte = 6;
+                Reversi.bordHoogte = 6;
+
+                if (checkBoxSpeler1.Checked)
+                {
+                    beurt = 2;
+                    Reversi.beurt = 2;
+                }
+
+                if (checkBoxSpeler2.Checked)
+                {
+                    beurt = 1;
+                    Reversi.beurt = 1;
+                }
+
+                if (textBoxSpeler1.Text == "")
+                    Reversi.Speler1 = "Speler 1";
+
+                if (textBoxSpeler2.Text == "")
+                    Reversi.Speler2 = "Speler 2";
+
+                Dispose();
             }
         }
 
@@ -239,7 +289,6 @@ namespace Reversi_App
         {
             if (checkBoxSpeler1.Checked)
             {
-                Reversi.beurt = 1;
                 checkBoxSpeler2.Checked = false;
             }
         }
@@ -249,7 +298,6 @@ namespace Reversi_App
         {
             if (checkBoxSpeler2.Checked)
             {
-                Reversi.beurt = 2;
                 checkBoxSpeler1.Checked = false;
             }
         }
