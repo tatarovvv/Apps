@@ -22,4 +22,4 @@ def compareLengths(string1,string2):
 
 # Exercise 7
 
-sum()
+sum() #test
